@@ -5,7 +5,9 @@ const Home = () => (
     <section className="hero">
       <p className="eyebrow">Find your next place</p>
       <h1>Property search without the noise.</h1>
-      <p>Browse verified homes, commercial properties and land for sale or rent.</p>
+      <p>
+        Browse verified homes, commercial properties and land for sale or rent.
+      </p>
       <Link className="button" to="/properties">
         Browse properties
       </Link>
