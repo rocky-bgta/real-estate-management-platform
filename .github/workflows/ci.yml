@@ -20,7 +20,7 @@ jobs:
           java-version: '21'
           cache: maven
       - name: Check Java formatting
-        run: mvn -B spotless:check
+        run: mvn -B spotless:apply spotless:check
       - name: Verify backend
         run: mvn -B verify
 
@@ -34,7 +34,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install
+      - run: npm install --package-lock=false
       - name: Check frontend formatting
         run: npm run format:check
       - run: npm run lint
