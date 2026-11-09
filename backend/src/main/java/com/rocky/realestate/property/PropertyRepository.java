@@ -1,8 +1,11 @@
 package com.rocky.realestate.property;
 
+import java.util.List;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface PropertyRepository
-    extends JpaRepository<Property, UUID>, JpaSpecificationExecutor<Property> {}
+    extends JpaRepository<Property, UUID>, JpaSpecificationExecutor<Property> {
+  List<Property> findByOwnerIdOrderByCreatedAtDesc(UUID ownerId);
+}

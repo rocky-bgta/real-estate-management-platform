@@ -16,9 +16,9 @@ class PropertyServiceTest {
     PropertyRepository repo = mock(PropertyRepository.class);
     when(repo.save(any(Property.class))).thenAnswer(i -> i.getArgument(0));
     PropertyService service = new PropertyService(repo);
+    UUID ownerId = UUID.randomUUID();
     PropertyRequest request =
         new PropertyRequest(
-            UUID.randomUUID(),
             "Family home",
             "Near park",
             PropertyCategory.HOUSE,
@@ -29,7 +29,7 @@ class PropertyServiceTest {
             new BigDecimal("1500"),
             3,
             2);
-    PropertyResponse response = service.create(request);
+    PropertyResponse response = service.create(ownerId, request);
     assertEquals(PropertyStatus.PENDING_APPROVAL, response.status());
     verify(repo).save(any(Property.class));
   }
