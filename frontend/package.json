@@ -24,6 +24,8 @@
     "@types/react-dom": "latest",
     "eslint": "latest",
     "prettier": "latest",
-    "vitest": "latest"
+    "vitest": "latest",
+    "@eslint/js": "latest",
+    "globals": "latest"
   }
 }
