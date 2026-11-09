@@ -88,19 +88,57 @@ public class Property {
     this.updatedAt = this.createdAt;
   }
 
-  public UUID getId() { return id; }
-  public UUID getOwnerId() { return ownerId; }
-  public String getTitle() { return title; }
-  public String getDescription() { return description; }
-  public PropertyCategory getCategory() { return category; }
-  public ListingType getListingType() { return listingType; }
-  public BigDecimal getPrice() { return price; }
-  public String getCity() { return city; }
-  public String getArea() { return area; }
-  public BigDecimal getSizeSqFt() { return sizeSqFt; }
-  public Integer getBedrooms() { return bedrooms; }
-  public Integer getBathrooms() { return bathrooms; }
-  public PropertyStatus getStatus() { return status; }
+  public UUID getId() {
+    return id;
+  }
+
+  public UUID getOwnerId() {
+    return ownerId;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public PropertyCategory getCategory() {
+    return category;
+  }
+
+  public ListingType getListingType() {
+    return listingType;
+  }
+
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public String getArea() {
+    return area;
+  }
+
+  public BigDecimal getSizeSqFt() {
+    return sizeSqFt;
+  }
+
+  public Integer getBedrooms() {
+    return bedrooms;
+  }
+
+  public Integer getBathrooms() {
+    return bathrooms;
+  }
+
+  public PropertyStatus getStatus() {
+    return status;
+  }
 
   public void approve() {
     status = PropertyStatus.PUBLISHED;
