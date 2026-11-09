@@ -59,94 +59,47 @@ public class Property {
 
   protected Property() {}
 
-  public Property(
-      UUID ownerId,
-      String title,
-      String description,
-      PropertyCategory category,
-      ListingType listingType,
-      BigDecimal price,
-      String city,
-      String area,
-      BigDecimal sizeSqFt,
-      Integer bedrooms,
-      Integer bathrooms) {
+  public Property(UUID ownerId, PropertyRequest request) {
     this.id = UUID.randomUUID();
     this.ownerId = ownerId;
-    this.title = title;
-    this.description = description;
-    this.category = category;
-    this.listingType = listingType;
-    this.price = price;
-    this.city = city;
-    this.area = area;
-    this.sizeSqFt = sizeSqFt;
-    this.bedrooms = bedrooms;
-    this.bathrooms = bathrooms;
+    apply(request);
     this.status = PropertyStatus.PENDING_APPROVAL;
     this.createdAt = OffsetDateTime.now();
     this.updatedAt = this.createdAt;
   }
 
-  public UUID getId() {
-    return id;
-  }
-
-  public UUID getOwnerId() {
-    return ownerId;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public PropertyCategory getCategory() {
-    return category;
-  }
-
-  public ListingType getListingType() {
-    return listingType;
-  }
-
-  public BigDecimal getPrice() {
-    return price;
-  }
-
-  public String getCity() {
-    return city;
-  }
-
-  public String getArea() {
-    return area;
-  }
-
-  public BigDecimal getSizeSqFt() {
-    return sizeSqFt;
-  }
-
-  public Integer getBedrooms() {
-    return bedrooms;
-  }
-
-  public Integer getBathrooms() {
-    return bathrooms;
-  }
-
-  public PropertyStatus getStatus() {
-    return status;
-  }
-
-  public void approve() {
-    status = PropertyStatus.PUBLISHED;
+  public void update(PropertyRequest request) {
+    apply(request);
+    status = PropertyStatus.PENDING_APPROVAL;
     updatedAt = OffsetDateTime.now();
   }
 
-  public void reject() {
-    status = PropertyStatus.REJECTED;
-    updatedAt = OffsetDateTime.now();
+  private void apply(PropertyRequest request) {
+    title = request.title();
+    description = request.description();
+    category = request.category();
+    listingType = request.listingType();
+    price = request.price();
+    city = request.city();
+    area = request.area();
+    sizeSqFt = request.sizeSqFt();
+    bedrooms = request.bedrooms();
+    bathrooms = request.bathrooms();
   }
+
+  public UUID getId() { return id; }
+  public UUID getOwnerId() { return ownerId; }
+  public String getTitle() { return title; }
+  public String getDescription() { return description; }
+  public PropertyCategory getCategory() { return category; }
+  public ListingType getListingType() { return listingType; }
+  public BigDecimal getPrice() { return price; }
+  public String getCity() { return city; }
+  public String getArea() { return area; }
+  public BigDecimal getSizeSqFt() { return sizeSqFt; }
+  public Integer getBedrooms() { return bedrooms; }
+  public Integer getBathrooms() { return bathrooms; }
+  public PropertyStatus getStatus() { return status; }
+  public void approve() { status = PropertyStatus.PUBLISHED; updatedAt = OffsetDateTime.now(); }
+  public void reject() { status = PropertyStatus.REJECTED; updatedAt = OffsetDateTime.now(); }
 }
