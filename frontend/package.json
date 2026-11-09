@@ -26,6 +26,7 @@
     "prettier": "latest",
     "vitest": "latest",
     "@eslint/js": "latest",
-    "globals": "latest"
+    "globals": "latest",
+    "typescript-eslint": "latest"
   }
 }
