@@ -35,8 +35,7 @@ public class PropertyService {
   @Transactional(readOnly = true)
   public Page<PropertyResponse> published(Pageable pageable) {
     return repository
-        .findAll(
-            (root, q, cb) -> cb.equal(root.get("status"), PropertyStatus.PUBLISHED), pageable)
+        .findAll((root, q, cb) -> cb.equal(root.get("status"), PropertyStatus.PUBLISHED), pageable)
         .map(PropertyResponse::from);
   }
 
