@@ -23,9 +23,6 @@ public class ApiExceptionHandler {
   @ExceptionHandler(MethodArgumentNotValidException.class)
   ResponseEntity<Map<String, Object>> validation(MethodArgumentNotValidException e) {
     return ResponseEntity.badRequest()
-        .body(
-            Map.of(
-                "timestamp", OffsetDateTime.now().toString(),
-                "message", "Validation failed"));
+        .body(Map.of("timestamp", OffsetDateTime.now().toString(), "message", "Validation failed"));
   }
 }
