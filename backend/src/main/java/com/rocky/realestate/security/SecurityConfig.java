@@ -17,8 +17,7 @@ public class SecurityConfig {
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(
             auth ->
-                auth.requestMatchers(
-                        "/api/v1/properties/**", "/v3/api-docs/**", "/swagger-ui/**")
+                auth.requestMatchers("/api/v1/properties/**", "/v3/api-docs/**", "/swagger-ui/**")
                     .permitAll()
                     .anyRequest()
                     .authenticated());
