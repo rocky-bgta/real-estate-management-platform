@@ -1,2 +1,6 @@
 package com.rocky.realestate.property;
-public enum ListingType { SALE, RENT }
+
+public enum ListingType {
+  SALE,
+  RENT
+}
